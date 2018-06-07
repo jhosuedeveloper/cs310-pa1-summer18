@@ -54,7 +54,7 @@ Your program should output: (1) polygons ordered from outside to inside and (2) 
 
 ## Examples
 
-2. One polygon
+1. One polygon
 
 ```
 > java cs310pa1 poly/box1.poly
@@ -63,7 +63,7 @@ polygon poly/box1.poly area= 400.0
 ```
 
 Here is the output.svg
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/2boxes.svg">
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
 
 2. Two polygons
 
@@ -75,7 +75,7 @@ polygon poly/box1.poly area= 400.0
 ```
 
 Here is the output.svg
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1boxes.svg">
 
 3. Three polygons
 
@@ -86,7 +86,9 @@ polygon poly/box2.poly area= 1600.0
 polygon poly/box1.poly area= 400.0
 - Saved results to output.svg
 ```
-
+Here is the output.svg
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/3boxes.svg">
+ 
 4. Need more examples? Look under [output folder](https://github.com/jmlien/cs310-pa1-summer18/blob/master/output)
 
 ## Definitions
