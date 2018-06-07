@@ -52,7 +52,7 @@ Your program should output: (1) polygons ordered from outside to inside and (2) 
 - An image file, in svg format. 
   - The image filename must be named **output.svg**
 - See [example output](#examples) below; your program must reproduce the same output.
-- [https://en.wikipedia.org/wiki/Scalable_Vector_Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics), i.e svg, files are supported by most modern web browsers. To visualize your results, for example, you can drag and drop to Google Chrome. 
+- [Scalable Vector Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics), i.e svg, files are supported by most modern web browsers. To visualize your results, for example, you can drag and drop to Google Chrome. 
 
 ## Examples
 
