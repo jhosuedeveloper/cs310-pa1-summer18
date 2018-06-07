@@ -2,7 +2,7 @@
 
 - CS 310 Programming Assignment 1 Due: **June 18th** 11:59pm, 2018
 
-<img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/b0e0a79d/output/example2.svg" width="800" alt="net">
+<img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/b0e0a79d/output/example2.svg" width="800">
 
 ## Assignment Objective
 - Write a program to paint nested polygons
@@ -37,6 +37,7 @@
  255 0 0 
  -10 -10 10 -10 10 10 -10 10
  ```
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/1box.svg">
 
 - All poygons are disjoint
 
@@ -61,6 +62,9 @@ polygon poly/box1.poly area= 400.0
 - Saved result to output.svg
 ```
 
+Here is the output.svg
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/1box.svg">
+
 2. Two polygons
 
 ```
@@ -69,6 +73,9 @@ polygon poly/box2.poly area= 1600.0
 polygon poly/box1.poly area= 400.0
 - Saved results to output.svg
 ```
+
+Here is the output.svg
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/2boxes.svg">
 
 3. Three polygons
 
