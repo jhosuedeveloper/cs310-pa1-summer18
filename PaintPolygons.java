@@ -1,8 +1,5 @@
 //These are the only packages you can import
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Collections;
-import java.util.AbstractCollection;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,7 +32,7 @@ public class PaintPolygons
   // print the polygons to screen in sorted order
   // (5%)
   //
-  void print()
+  public void print()
   {
     //TODO: your code here
   }
@@ -47,12 +44,12 @@ public class PaintPolygons
   //---------------------------------------------------------------------------
   private SimpleLinkedList<Polygon> m_polys;
 
-  PaintPolygons()
+  public PaintPolygons()
   {
     m_polys=new SimpleLinkedList<Polygon>();
   }
 
-  void addPolygon(Polygon p)
+  public void addPolygon(Polygon p)
   {
       m_polys.add(p);
   }
@@ -60,13 +57,13 @@ public class PaintPolygons
   //sort the polygons from outside to inside
   //if two polygons are in the same level, sort by areas in ascending order
   //(i.e., small to large)
-  void sortPolygons()
+  public void sortPolygons()
   {
       m_polys.bubble_sort(new PolygonComparator());
   }
 
   //save the polygons to output.svg in sorted order
-  void save2SVG(String filename)
+  public void save2SVG(String filename)
   {
     try
     {
