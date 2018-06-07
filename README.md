@@ -33,11 +33,12 @@
  ```
  
  For example, you can open poly/box1.poly in any text editor and see a red 20x20 square.
- ```
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
+```
  255 0 0 
  -10 -10 10 -10 10 10 -10 10
  ```
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
+
 
 - All poygons are disjoint
 
@@ -62,7 +63,7 @@ polygon poly/box1.poly area= 400.0
 - Saved result to output.svg
 ```
 
-Here is the output.svg
+Here is the output.svg:
  <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
 
 2. Two polygons
@@ -74,8 +75,8 @@ polygon poly/box1.poly area= 400.0
 - Saved results to output.svg
 ```
 
-Here is the output.svg
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1boxes.svg">
+Here is the output.svg:
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/2boxes.svg">
 
 3. Three polygons
 
@@ -86,7 +87,7 @@ polygon poly/box2.poly area= 1600.0
 polygon poly/box1.poly area= 400.0
 - Saved results to output.svg
 ```
-Here is the output.svg
+Here is the output.svg:
  <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/3boxes.svg">
  
 4. Need more examples? Look under [output folder](https://github.com/jmlien/cs310-pa1-summer18/blob/master/output)
