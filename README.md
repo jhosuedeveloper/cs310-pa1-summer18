@@ -172,6 +172,8 @@ public void reverse()
 }
 ```
 
+***Note***: You can test these methods by ```java SimpleLinkedList``` This runs the main function in SimpleLinkedList.java
+
 ### Task 2: Imeplement Polygon Comparator (15%)
 ```java
 //in PaintPolygons.java
