@@ -7,7 +7,7 @@
 ## Assignment Objective
 - Write a program to paint nested polygons
 - Build linked list to represent polygon and store a list of polygons
-- Sort polyongs in nested order from outside to inside
+- Sort polygons in nested order from outside to inside
 - Write a method to check if a polygon is inside another polygon using *winding number*; [Learn more about winding number from Wikipedia](https://en.wikipedia.org/wiki/Winding_number)
 
 ## Table of Contents
@@ -52,6 +52,7 @@ Your program should output: (1) polygons ordered from outside to inside and (2) 
 - An image file, in svg format. 
   - The image filename must be named **output.svg**
 - See [example output](#examples) below; your program must reproduce the same output.
+- [https://en.wikipedia.org/wiki/Scalable_Vector_Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics), i.e svg, files are supported by most modern web browsers. To visualize your results, for example, you can drag and drop to Google Chrome. 
 
 ## Examples
 
