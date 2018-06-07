@@ -136,7 +136,7 @@ void sortPolygons()
 ```
 
 ### Task 1: Implement Linkede List (50%)
-```
+```java
 //in SimpleLinkedList.java
 
 //add a new record to the end of the list
@@ -161,8 +161,8 @@ public void reverse()
 }
 ```
 
-### Task 3: Imeplement Polygon Comparator (15%)
-```
+### Task 2: Imeplement Polygon Comparator (15%)
+```java
 //in PaintPolygons.java
 
 //
@@ -179,9 +179,9 @@ private class PolygonComparator implements Comparator<Polygon>
 }
 ```
 
-### Task 4: Sort Polygons (25%)
+### Task 3: Sort Polygons (25%)
 
-```
+```java
 //in SimpleLinkedList.java
 
 //sort all elements in this list in decending order
@@ -194,9 +194,9 @@ public void bubble_sort(Comparator<T> comp)
 }
 ```
 
-### Task 5: Output Results (5%)
+### Task 4: Output Results (5%)
 
-```
+```java
 //in PaintPolygons.java
 
 //
