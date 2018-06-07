@@ -132,7 +132,7 @@ public float area()
 //sort the polygons from outside to inside
 //if two polygons are in the same level, sort by areas in ascending order
 //(i.e., small to large)
-void sortPolygons()
+public void sortPolygons()
 ```
 
 ### Task 1: Implement Linkede List (50%)
@@ -209,24 +209,30 @@ void print()
 }
 ```
 
+### Task 5: Complete README.txt (5%)
+
+Fill out README.txt **(NOT README.md, which is this document)** with your information (goes in your user folder)
+Provide sufficient details in README.txt to help us understand your code.
+
 ## Rules
 
 ### You must
-1. Fill out readme.txt **(NOT README.md, which is this document)** with your information (goes in your user folder)
-2. Have a style (indentation, good variable names, etc.)
-3. Comment your code well in JavaDoc style (no need to overdo it, just do it well)
-4. Have code that compiles with the command: javac *.java in your user directory
-5. **Print regions to terminal by size, large to small**
+
+1. Have a style (indentation, good variable names, etc.)
+2. Comment your code well in JavaDoc style (no need to overdo it, just do it well)
+3. Have code that compiles with the command: javac *.java in your user directory
+4. **Print regions to terminal by size, large to small**
 
 ### You may 
 
 1. Import the following libraries
 ```java
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Collections;
 import java.io.File;
 import java.io.IOException;
+import java.util.Comparator;
+import java.io.FileWriter;
+import java.util.Scanner;
+import java.io.FileNotFoundException;
 ```
 
 ### You cannot 
