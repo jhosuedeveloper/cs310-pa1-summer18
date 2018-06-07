@@ -179,15 +179,15 @@ public void reverse()
 //in PaintPolygons.java
 
 //
-// compare two polygons using winding number and areas
+// compare two polygons using winding numbers and areas
 // (15%)
 //
 private class PolygonComparator implements Comparator<Polygon>
 {
 	public int compare(Polygon p1, Polygon p2)
 	{
-	//TODO: your code here
-	return 0;
+		//TODO: your code here
+		return 0;
 	}
 }
 ```
