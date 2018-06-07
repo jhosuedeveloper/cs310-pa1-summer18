@@ -110,50 +110,104 @@ There are **5** tasks in this assignment. It is recommended that you implement t
 
 ### Task 0: Read the given code (0%)
 
-Read and familiarize yourself with the code, in particular the following classes and methods in Decomposor.java
+Read and familiarize yourself with the code, in particular the following classes and methods
 
 This will save you a lot of time later.
 
 ```java
 
-private class Pair<T>{...}
+//in ListItem.java
+public class ListItem<T> 
 
-private class Pixel extends Pair<Integer>{...}
+// in Polygon.java
 
-private class Similarity implements Comparable<Similarity>{}
+//compute the winding number of a given point at (x,y)
+public int winding_number(double x, double y)
 
-//Convert a pixel to its ID
-private int getID(Pixel pixel);
-    
-//Convex ID back to a pixel
-private Pixel getPixel(int id);
-	
-//returns the color of a given pixel
-private Color getColor(Pixel p)
+//get the area of the polygon
+public float area()
 
-//given a collection of pixels, determines the average color
-private Color computeAverageColor(AbstractCollection<Pixel> pixels);
+//in PaintPolygons.java
 
-//computes the difference (as an integer) between two colors
-private int getDifference(Color c1, Color c2);
-	
-//returns the pixels adjacent to the pixel
-private ArrayList<Pixel> getNeightbors(Pixel pixel);
+//sort the polygons from outside to inside
+//if two polygons are in the same level, sort by areas in ascending order
+//(i.e., small to large)
+void sortPolygons()
 ```
 
-### Task 1: Implement Linkede List (20%)
+### Task 1: Implement Linkede List (50%)
+```
+//in SimpleLinkedList.java
 
-- Implement Set<T> in Set.java **(5%)**
-- Implement DisjointSets<T> in DisjointSets.java **(15%)**
+//add a new record to the end of the list
+//(15%)
+public void add(T data)
+{
+	//TODO: your code here
+}
 
-### Task 2: Imeplement Polygon (30%)
+//swap two nodes in linked list
+//(20%)
+private void swap(ListItem<T> n1, ListItem<T> n2)
+{
+	//TODO: your code here
+}
 
+//reverse the order of the nodes
+//(15%)
+public void reverse()
+{
+	//TODO: your code here
+}
+```
 
-### Task 3: Imeplement Polygon Comparator (40%)
+### Task 3: Imeplement Polygon Comparator (15%)
+```
+//in PaintPolygons.java
 
-### Task 4: Sort Polygons (10%)
+//
+// compare two polygons using winding number and areas
+// (15%)
+//
+private class PolygonComparator implements Comparator<Polygon>
+{
+	public int compare(Polygon p1, Polygon p2)
+	{
+	//TODO: your code here
+	return 0;
+	}
+}
+```
+
+### Task 4: Sort Polygons (25%)
+
+```
+//in SimpleLinkedList.java
+
+//sort all elements in this list in decending order
+//(25%)
+public void bubble_sort(Comparator<T> comp)
+{
+	//TODO: your code here
+	//you can find bubble sort pseudocode here:
+	//https://en.wikipedia.org/wiki/Bubble_sort#Pseudocode_implementation
+}
+```
 
 ### Task 5: Output Results (5%)
+
+```
+//in PaintPolygons.java
+
+//
+// print the polygons to screen in sorted order
+// (5%)
+//
+void print()
+{
+	//TODO: your code here
+}
+```
 
 ## Rules
 
