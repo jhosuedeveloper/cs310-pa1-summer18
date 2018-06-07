@@ -37,7 +37,7 @@
  255 0 0 
  -10 -10 10 -10 10 10 -10 10
  ```
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/1box.svg">
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
 
 - All poygons are disjoint
 
@@ -63,7 +63,7 @@ polygon poly/box1.poly area= 400.0
 ```
 
 Here is the output.svg
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/1box.svg">
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/2boxes.svg">
 
 2. Two polygons
 
@@ -75,7 +75,7 @@ polygon poly/box1.poly area= 400.0
 ```
 
 Here is the output.svg
- <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/master/output/2boxes.svg">
+ <img src="https://cdn.rawgit.com/jmlien/cs310-pa1-summer18/73dbe8b2/output/1box.svg">
 
 3. Three polygons
 
