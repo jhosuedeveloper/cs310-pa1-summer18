@@ -14,18 +14,19 @@ public class SimpleLinkedList<T>
   //(15%)
   public void add(T data)
   {
-    ListItem<T> x = new ListItem<T>();
-    x.data = data;
+    ListItem<T> x = new ListItem<T>(data);
 
-    if(tail!=null)
+
+    if(m_tail!=null)
     {
       m_tail.next = x;
-      x.prev= m_tail;
+      x.pre= m_tail;
       m_tail = x;
+      x.next=null;
     }
     else
     {
-      tail=head=x;
+      m_tail=m_head=x;
     }
 
 
@@ -42,121 +43,313 @@ public class SimpleLinkedList<T>
     }
 
 
-
-
-    if((n1==m_head && n2==m_tail) || (n1==m_tail && n2==m_head))
+    if(is_cicular())
     {
-      if(n1==m_head)
+      if(n1.next ==n2 || n2.next==n1)
       {
-        ListItem<T> temp = n1.next;
-        n1.next = null;
-        n1.prev = n2.prev;
-        n2.prev.next = n1;
-
-        n2.prev=null;
-        n2.next=temp;
-        temp.prev = n2;
-
-        m_head = n2;
-        m_tail = n1;
+        swap4nextto(n1,n2);
       }
       else
       {
-        ListItem<T> temp = n2.next;
-        n2.next = null;
-        n2.prev = n1.prev;
-        n1.prev.next=n2;
+        ListItem<T> tempp = n1.pre;
+        ListItem<T> tempn = n1.next;
 
-        n1.prev=null;
-        n1.next=temp;
-        temp.prev = n1;
+        n1.next = n2.next;
+        n1.pre = n2.pre;
+        n2.next.pre=n1;
+        n2.pre.next=n1;
 
-        m_head = n1;
-        m_tail = n2;
+        n2.next = tempn;
+        n2.pre = tempp;
+        tempn.pre = n2;
+        tempp.next = n2;
+      }
+
+      if(n1==m_head && n2==m_tail)
+      {
+        n1=m_tail;
+        n2=m_head;
+      }
+      else if (n2==m_head && n1==m_tail)
+      {
+        n2=m_tail;
+        n1=m_head;
+      }
+      else if(n1==m_head)
+      {
+        n2=m_head;
+      }
+      else if(n2==m_head)
+      {
+        n1=m_head;
+      }
+      else if(n1==m_tail)
+      {
+        n2=m_tail;
+      }
+      else if(n2==m_tail)
+      {
+        n1=m_tail;
+      }
+      else
+      {
+        //extra case might be applied.
+      }
+    }
+    else if((n1==m_head && n2==m_tail) || (n1==m_tail && n2==m_head))
+    {      System.out.println("case 1");
+      if(n1.next==n2 || n2.next==n1)
+      {
+        System.out.println("case 1.1");
+
+        swap1nextto(n1,n2);
+      }
+      else
+      {
+        if(n1==m_head)
+        {
+           System.out.println("case 1.2");
+          ListItem<T> temp = n1.next;
+          n1.next = null;
+          n1.pre = n2.pre;
+          n2.pre.next = n1;
+
+          n2.pre=null;
+          n2.next=temp;
+          temp.pre = n2;
+
+          m_head = n2;
+          m_tail = n1;
+        }
+        else
+        {
+          System.out.println("case 1.3");
+
+          ListItem<T> temp = n2.next;
+          n2.next = null;
+          n2.pre = n1.pre;
+          n1.pre.next=n2;
+
+          n1.pre=null;
+          n1.next=temp;
+          temp.pre = n1;
+
+          m_head = n1;
+          m_tail = n2;
+        }
       }
     }
     else if ((n1==m_head)||(n2==m_head))
-    {
-      if(n1==head)
+    {  System.out.println("case 2");
+      if(n1.next==n2 || n2.next==n1)
       {
-        ListItem<T> temp = n1.next;
-        n1.next = n2.next;
-        n1.prev = n2.prev;
-        n2.next.prev = n1;
-        n2.prev.next = n1;
+        System.out.println("case 2.1");
 
-        n2.prev = null;
-        n2.next = temp;
-        temp.prev=n2;
-
-        m_head = n2;
-
+        swap2nextto(n1,n2);
       }
       else
       {
-        ListItem<T> temp = n2.next;
-        n2.next = n1.next;
-        n2.prev = n1.prev;
-        n1.next.prev = n2;
-        n1.prev.next = n2;
+        System.out.println("case 2.2");
 
-        n2.prev = null;
-        n2.next = temp;
-        temp.prev = n2;
+        if(n1==m_head)
+        {
+          ListItem<T> temp = n1.next;
+          n1.next = n2.next;
+          n1.pre = n2.pre;
+          n2.next.pre = n1;
+          n2.pre.next = n1;
 
-        m_head = n1;
+          n2.pre = null;
+          n2.next = temp;
+          temp.pre=n2;
+
+          m_head = n2;
+
+        }
+        else
+        {
+          ListItem<T> temp = n2.next;
+          n2.next = n1.next;
+          n2.pre = n1.pre;
+          n1.next.pre = n2;
+          n1.pre.next = n2;
+
+          n2.pre = null;
+          n2.next = temp;
+          temp.pre = n2;
+
+          m_head = n1;
+        }
       }
     }
     else if ((n1==m_tail)||(n2==m_tail))
-    {
-      if(n1==m_tail)
+    {  System.out.println("case 3");
+      if(n1.next==n2||n2.next==n1)
       {
-        ListItem<T> temp = n1.prev;
-        n1.next = n2.next;
-        n1.prev = n2.prev;
-        n2.next.prev = n1;
-        n2.prev.next = n1;
-
-        n2.next = null;
-        n2.prev = temp;
-        temp.next = n2;
-
-        m_tail = n2;
+        swap3nextto(n1,n2);
       }
       else
       {
-        ListItem<T> temp = n2.prev;
-        n2.next = n1.next;
-        n2.prev = n1.prev;
-        n1.next.prev = n2;
-        n1.prev.next = n2;
+        if(n1==m_tail)
+        {
+          ListItem<T> temp = n1.pre;
+          n1.next = n2.next;
+          n1.pre = n2.pre;
+          n2.next.pre = n1;
+          n2.pre.next = n1;
 
-        n1.next = null;
-        n1.prev = temp;
-        temp.next = n1;
+          n2.next = null;
+          n2.pre = temp;
+          temp.next = n2;
 
-        m_tail = n1;
+          m_tail = n2;
+        }
+        else
+        {
+          ListItem<T> temp = n2.pre;
+          n2.next = n1.next;
+          n2.pre = n1.pre;
+          n1.next.pre = n2;
+          n1.pre.next = n2;
+
+          n1.next = null;
+          n1.pre = temp;
+          temp.next = n1;
+
+          m_tail = n1;
+        }
       }
     }
     else
     {
-      ListItem<t> tempp = n1.prev;
-      ListItem<t> tempn = n1.next;
+      System.out.println("case 4");
+      if(n1.next ==n2 || n2.next==n1)
+      {
+        swap4nextto(n1,n2);
+      }
+      else
+      {
+        ListItem<T> tempp = n1.pre;
+        ListItem<T> tempn = n1.next;
 
-      n1.next = n2.next;
-      n1.prev = n2.prev;
-      n2.next.prev=n1;
-      n2.prev.next=n1;
+        n1.next = n2.next;
+        n1.pre = n2.pre;
+        n2.next.pre=n1;
+        n2.pre.next=n1;
 
-      n2.next = tempn;
-      n2.prev = tempp;
-      tempn.prev = n2;
-      tempp.next = n2;
+        n2.next = tempn;
+        n2.pre = tempp;
+        tempn.pre = n2;
+        tempp.next = n2;
+      }
     }
 
 
   }
 
+
+  public void swap1nextto(ListItem<T> n1, ListItem<T> n2)
+  {
+    if(n1.next == n2)
+    {
+      n1.next = null;
+      n1.pre = n2;
+      n2.next = n1;
+      n2.pre=null;
+      m_head=n2;
+      m_tail=n1;
+    }
+    else
+    {
+      n2.next = null;
+      n2.pre = n1;
+      n1.next = n2;
+      n1.pre = null;
+      m_head=n1;
+      m_tail=n2;
+    }
+  }
+
+  public void swap2nextto(ListItem<T> n1, ListItem<T> n2)
+  {
+    if(n1.next == n2)
+    {
+      System.out.println("case 2.1.1");
+
+      ListItem<T> temp = n2.next;
+      n1.next = temp;
+      n1.pre = n2;
+      temp.pre=n1;
+      n2.next=n1;
+      n2.pre=null;
+      m_head=n2;
+
+    }
+    else
+    {
+      System.out.println("case 2.1.2");
+
+      ListItem<T> tempx = n1.next;
+      n2.next = tempx;
+      n2.pre = n1;
+      tempx.pre=n2;
+      n1.next=n2;
+      n1.pre=null;
+      m_head=n1;
+    }
+  }
+
+
+  public void swap3nextto(ListItem<T> n1, ListItem<T> n2)
+  {
+    if(n1.next == n2)
+    {
+      ListItem<T> temp = n1.pre;
+      n1.next = null;
+      n1.pre = n2;
+      n2.next = n1;
+      n2.pre = temp;
+      temp.next=n2;
+      m_tail=n1;
+    }
+    else
+    {
+      ListItem<T> tempx = n2.pre;
+      n2.next = null;
+      n2.pre = n1;
+      n1.next = n2;
+      n1.pre = tempx;
+      tempx.next=n1;
+      m_tail=n2;
+    }
+  }
+
+  public void swap4nextto(ListItem<T> n1, ListItem<T> n2)
+  {
+    ListItem<T> temp =n1.pre;
+    if(n1.next == n2)
+    {
+      n1.next = n2.next;
+      n1.pre = n2;
+      n2.next.pre = n1;
+
+      n2.next = n1;
+      n2.pre = temp;
+      temp.next = n2;
+    }
+    else
+    {
+      ListItem<T> tempx =n2.pre;
+
+      n2.next = n1.next;
+      n2.pre = n1;
+      n1.next.pre = n2;
+
+      n1.next = n2;
+      n1.pre = temp;
+      tempx.next = n1;
+    }
+  }
   //reverse the order of the nodes
   //(15%)
   public void reverse()
@@ -164,16 +357,34 @@ public class SimpleLinkedList<T>
     //TODO: your code here
     ListItem<T> tempL = m_head;
     ListItem<T> tempR = m_tail;
-    ListItem<T> tempx = new ListItem<T>();
 
+
+    if(is_cicular())
+    {
+      System.out.println("it is circular in reverse");
+    }
+    else
+    {
+      System.out.println("it is NOT circular in reverse");
+
+    }
     for(int i=0;i< (int)size/2; i++)
     {
 
       swap(tempL, tempR);
 
       //for next round
-      tempL = tempL.next;
-      tempR = tempR.prev;
+      if(i!=((int)(size/2)-1))
+      {
+        tempL = m_head;
+        tempR = m_tail;
+        for(int j=0;j<i+1;j++)
+        {
+          tempL = tempL.next;
+          tempR = tempR.pre;
+        }
+      }
+
     }
 
   }
@@ -186,25 +397,40 @@ public class SimpleLinkedList<T>
     int n = size;
     boolean swapped;
 
+    int batch =0;
     do
     {
+      batch++;
       swapped = false;
-      for (i=1;i<n;i++)
+      System.out.println(batch);
+      for (int i=1;i<n;i++)
       {
-        if(tempL > tempL.next)
+        System.out.println(tempL.data +"-----" + tempL.next.data +"bubble_sort");
+        System.out.println("count" + comp.compare(tempL.data, tempL.next.data));
+
+        if(comp.compare(tempL.data, tempL.next.data)>0)
         {
+          System.out.println(tempL.data +"-----" + tempL.next.data +"bubble_sortx");
+
           swap(tempL, tempL.next);
           swapped = true;
         }
-        tempL = tempL.next;
+
+
+        //for next round
+        if(i!=n-1)
+        {
+          tempL = m_head;
+          for(int j=0;j<i;j++)
+          {
+            tempL = tempL.next;
+            System.out.println("--->"+tempL.data);
+          }
+        }
       }
       n--;
       tempL=m_head;
-    } while (swapped==false);
-
-
-
-
+    } while (swapped==true);
 
     //TODO: your code here
     //you can find bubble sort pseudocode here:
@@ -227,15 +453,22 @@ public class SimpleLinkedList<T>
     System.out.println(sLL.toString());
 
     //sLL.reverse();
+
     //System.out.println(sLL.toString());
+
 
     sLL.bubble_sort(new Comparator<String>(){
       public int compare(String a, String b){return a.compareTo(b);}
     });
     System.out.println("In decending order: "+sLL.toString());
-
+    iLL.add(3);
+    iLL.add(-20);
+    iLL.add(100);
+    iLL.add(50);
+    iLL.add(2);
     iLL.add(-1);
     iLL.add(9);
+    iLL.add(100);
     iLL.add(21);
     iLL.add(3);
     System.out.println(iLL.toString());
@@ -243,7 +476,11 @@ public class SimpleLinkedList<T>
       public int compare(Integer a, Integer b){return a-b;}
     });
     System.out.println("In decending order: "+iLL.toString());
+    iLL.reverse();
+
+    System.out.println(iLL.toString());
   }
+
 
   //---------------------------------------------------------------------------
   //

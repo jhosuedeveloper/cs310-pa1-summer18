@@ -23,8 +23,26 @@ public class PaintPolygons
   {
     public int compare(Polygon p1, Polygon p2)
     {
-      //TODO: your code here
-      return 0;
+      if(p1.winding_number(p2.getVertices().getHead().data.x, p2.getVertices().getHead().data.y)!=0)//case p2 is inside p1
+      {
+        return 0;
+      }
+      else if(p2.winding_number(p1.getVertices().getHead().data.x, p1.getVertices().getHead().data.y)!=0)//case p2 is inside p1
+      {
+        return 1;
+      }
+      else
+      {
+        if(p1.area()<p2.area())
+        {
+          return 1;
+        }
+        else
+        {
+          return 0;
+        }
+      }
+
     }
   }
 
@@ -34,7 +52,18 @@ public class PaintPolygons
   //
   public void print()
   {
-    //TODO: your code here
+    ListItem<Polygon> temp = m_polys.getHead();
+
+    for(int i =0;i<m_polys.size();i++)
+    {
+      System.out.println("polygon "+ temp.data.name +"area= "+ temp.data.area() );
+
+      if(i!=m_polys.size()-1)
+      {
+        temp=temp.next;
+      }
+    }
+
   }
 
   //---------------------------------------------------------------------------

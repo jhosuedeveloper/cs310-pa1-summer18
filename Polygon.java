@@ -11,7 +11,7 @@
 public class Polygon
 {
   // a 2d point
-  private class Point
+  public static class Point
   {
     public Point(double _x, double _y)
     {
@@ -61,6 +61,13 @@ public class Polygon
     }
 
     return true;
+  }
+
+  //added June 8th. 2018
+  //return the first vertex of the polygon
+  public SimpleLinkedList<Point> getVertices()
+  {
+    return m_vertices;
   }
 
   //compute the winding number of a given point at (x,y)
@@ -145,7 +152,6 @@ public class Polygon
     public double angle(Vector v)
     {
       double d=this.normalize().dot(v.normalize());
-      //update starts here
       double r=Math.acos(d);
       if( cross(v)<0 ) r=-r;
       return r;
@@ -200,5 +206,6 @@ public class Polygon
     }
     while(ptr!=head);
   }
+
   //FC0182435019643AF53744346B4FE8770B811921140611CF7E9BACA04396F2E2
 }
