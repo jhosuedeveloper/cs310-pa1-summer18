@@ -82,7 +82,7 @@ public class Polygon
     }
     while(ptr!=head);
 
-    return (int)Math.floor(winding/(Math.PI*2));
+    return (int)Math.round(winding/(Math.PI*2));
   }
 
 
@@ -145,7 +145,10 @@ public class Polygon
     public double angle(Vector v)
     {
       double d=this.normalize().dot(v.normalize());
-      return Math.acos(d);
+      //update starts here
+      double r=Math.acos(d);
+      if( cross(v)<0 ) r=-r;
+      return r;
     }
 
     //private data

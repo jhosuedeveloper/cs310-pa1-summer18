@@ -14,14 +14,147 @@ public class SimpleLinkedList<T>
   //(15%)
   public void add(T data)
   {
-    //TODO: your code here
+    ListItem<T> x = new ListItem<T>();
+    x.data = data;
+
+    if(tail!=null)
+    {
+      m_tail.next = x;
+      x.prev= m_tail;
+      m_tail = x;
+    }
+    else
+    {
+      tail=head=x;
+    }
+
+
+    size++;
   }
 
   //swap two nodes in linked list
   //(20%)
   private void swap(ListItem<T> n1, ListItem<T> n2)
   {
-    //TODO: your code here
+    if(size<2)
+    {
+      throw new IndexOutOfBoundsException("swap can't be done");
+    }
+
+
+
+
+    if((n1==m_head && n2==m_tail) || (n1==m_tail && n2==m_head))
+    {
+      if(n1==m_head)
+      {
+        ListItem<T> temp = n1.next;
+        n1.next = null;
+        n1.prev = n2.prev;
+        n2.prev.next = n1;
+
+        n2.prev=null;
+        n2.next=temp;
+        temp.prev = n2;
+
+        m_head = n2;
+        m_tail = n1;
+      }
+      else
+      {
+        ListItem<T> temp = n2.next;
+        n2.next = null;
+        n2.prev = n1.prev;
+        n1.prev.next=n2;
+
+        n1.prev=null;
+        n1.next=temp;
+        temp.prev = n1;
+
+        m_head = n1;
+        m_tail = n2;
+      }
+    }
+    else if ((n1==m_head)||(n2==m_head))
+    {
+      if(n1==head)
+      {
+        ListItem<T> temp = n1.next;
+        n1.next = n2.next;
+        n1.prev = n2.prev;
+        n2.next.prev = n1;
+        n2.prev.next = n1;
+
+        n2.prev = null;
+        n2.next = temp;
+        temp.prev=n2;
+
+        m_head = n2;
+
+      }
+      else
+      {
+        ListItem<T> temp = n2.next;
+        n2.next = n1.next;
+        n2.prev = n1.prev;
+        n1.next.prev = n2;
+        n1.prev.next = n2;
+
+        n2.prev = null;
+        n2.next = temp;
+        temp.prev = n2;
+
+        m_head = n1;
+      }
+    }
+    else if ((n1==m_tail)||(n2==m_tail))
+    {
+      if(n1==m_tail)
+      {
+        ListItem<T> temp = n1.prev;
+        n1.next = n2.next;
+        n1.prev = n2.prev;
+        n2.next.prev = n1;
+        n2.prev.next = n1;
+
+        n2.next = null;
+        n2.prev = temp;
+        temp.next = n2;
+
+        m_tail = n2;
+      }
+      else
+      {
+        ListItem<T> temp = n2.prev;
+        n2.next = n1.next;
+        n2.prev = n1.prev;
+        n1.next.prev = n2;
+        n1.prev.next = n2;
+
+        n1.next = null;
+        n1.prev = temp;
+        temp.next = n1;
+
+        m_tail = n1;
+      }
+    }
+    else
+    {
+      ListItem<t> tempp = n1.prev;
+      ListItem<t> tempn = n1.next;
+
+      n1.next = n2.next;
+      n1.prev = n2.prev;
+      n2.next.prev=n1;
+      n2.prev.next=n1;
+
+      n2.next = tempn;
+      n2.prev = tempp;
+      tempn.prev = n2;
+      tempp.next = n2;
+    }
+
+
   }
 
   //reverse the order of the nodes
@@ -29,12 +162,50 @@ public class SimpleLinkedList<T>
   public void reverse()
   {
     //TODO: your code here
+    ListItem<T> tempL = m_head;
+    ListItem<T> tempR = m_tail;
+    ListItem<T> tempx = new ListItem<T>();
+
+    for(int i=0;i< (int)size/2; i++)
+    {
+
+      swap(tempL, tempR);
+
+      //for next round
+      tempL = tempL.next;
+      tempR = tempR.prev;
+    }
+
   }
 
   //sort all elements in this list in decending order
   //(25%)
   public void bubble_sort(Comparator<T> comp)
   {
+    ListItem<T> tempL = m_head;
+    int n = size;
+    boolean swapped;
+
+    do
+    {
+      swapped = false;
+      for (i=1;i<n;i++)
+      {
+        if(tempL > tempL.next)
+        {
+          swap(tempL, tempL.next);
+          swapped = true;
+        }
+        tempL = tempL.next;
+      }
+      n--;
+      tempL=m_head;
+    } while (swapped==false);
+
+
+
+
+
     //TODO: your code here
     //you can find bubble sort pseudocode here:
     //https://en.wikipedia.org/wiki/Bubble_sort#Pseudocode_implementation
